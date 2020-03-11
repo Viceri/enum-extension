@@ -6,6 +6,9 @@
     <Version>1.0.1</Version>
     <Authors>Filipe Ribeiro</Authors>
     <Company>Grupo Viceri</Company>
+  
+    <RepositoryUrl>https://github.com/Viceri/enum-extension</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
 </Project>
