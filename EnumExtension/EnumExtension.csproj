@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <PackageId>enum-extension</PackageId>
+    <Version>1.0.1</Version>
+    <Authors>Filipe Ribeiro</Authors>
+    <Company>Grupo Viceri</Company>
+  </PropertyGroup>
+
+</Project>
