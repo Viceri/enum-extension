@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Xunit;
 
@@ -20,11 +21,11 @@ namespace EnumExtension.testing
         [Fact]
         public void Should_Return_Enum_As_List()
         {
-            var enumExpectedValues = new[]
+            var enumExpectedValues = new Dictionary<int, string>
             {
-                "Male M",
-                "Female F",
-                "Unisex U"
+                { 0, "Male M" },
+                { 1, "Female F" },
+                { 2, "Unisex U" }
             };
 
             var enumValues = EnumExtension.GetEnumAsList<Sex>();
