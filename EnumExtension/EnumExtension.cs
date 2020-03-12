@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace EnumExtension
@@ -13,5 +14,18 @@ namespace EnumExtension
 
             return ((DescriptionAttribute)attrs[0]).Description;
         }
+
+        public static IEnumerable<string> GetEnumAsList<T>() where T : Enum
+        {
+            var enumValues = new List<string>();
+
+            foreach (var enumValue in typeof(T).GetEnumValues())
+            {
+                enumValues.Add(GetDescription((Enum)enumValue));
+            }
+
+            return enumValues;
+        }
+
     }
 }
