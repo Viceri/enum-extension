@@ -16,17 +16,22 @@ namespace EnumExtension
             return ((DescriptionAttribute)attrs[0]).Description;
         }
 
-        public static Dictionary<int, string> GetEnumAsList<T>() where T : Enum
+        public static IEnumerable<EnumValue> GetEnumAsList<T>() where T : Enum
         {
-            var enumDictionary = new Dictionary<int, string>();
+            var enumValues = (IEnumerable<T>)typeof(T).GetEnumValues();
 
-            foreach (var enumValue in typeof(T).GetEnumValues())
+            return enumValues.Select((value, index) => new EnumValue
             {
-                enumDictionary[(int)enumValue] = GetDescription((Enum)enumValue);
-            }
-
-            return enumDictionary;
+                Index = index,
+                Description = GetDescription(value)
+            });
         }
 
+    }
+
+    public class EnumValue
+    {
+        public int Index { get; set; }
+        public string Description { get; set; }
     }
 }

@@ -11,4 +11,8 @@
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="CompareObject" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>

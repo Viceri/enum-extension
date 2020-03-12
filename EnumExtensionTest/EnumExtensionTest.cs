@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using CompareObject;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using Xunit;
@@ -21,21 +22,17 @@ namespace EnumExtension.testing
         [Fact]
         public void Should_Return_Enum_As_List()
         {
-            var enumExpectedValues = new Dictionary<int, string>
+            var enumExpectedValues = new[]
             {
-                { 0, "Male M" },
-                { 1, "Female F" },
-                { 2, "Unisex U" }
+                new EnumValue{ Index = 0, Description = "Male M" },
+                new EnumValue{ Index = 1, Description = "Female F" },
+                new EnumValue{ Index = 2, Description = "Unisex U" },
             };
 
             var enumValues = EnumExtension.GetEnumAsList<Sex>();
 
             Assert.Equal(3, enumValues.Count());
-
-            foreach (var enumValue in enumValues)
-            {
-               Assert.Contains(enumValue, enumExpectedValues);
-            }
+            Assert.True(enumExpectedValues.Compare(enumValues));
         }
     }
 
