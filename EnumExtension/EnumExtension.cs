@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace EnumExtension
 {
@@ -15,16 +16,16 @@ namespace EnumExtension
             return ((DescriptionAttribute)attrs[0]).Description;
         }
 
-        public static IEnumerable<string> GetEnumAsList<T>() where T : Enum
+        public static Dictionary<int, string> GetEnumAsList<T>() where T : Enum
         {
-            var enumValues = new List<string>();
+            var enumDictionary = new Dictionary<int, string>();
 
             foreach (var enumValue in typeof(T).GetEnumValues())
             {
-                enumValues.Add(GetDescription((Enum)enumValue));
+                enumDictionary[(int)enumValue] = GetDescription((Enum)enumValue);
             }
 
-            return enumValues;
+            return enumDictionary;
         }
 
     }
