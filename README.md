@@ -18,7 +18,7 @@
         Unisex,
     }
     
-    EnumExtension.GetEnumAsList<Sex>() //Retorna uma lista de EnumValue com os valores das descrições do Enum.
+    EnumExtension.GetEnumAsList<Sex>() //Retorna uma lista com os valores das descrições do Enum.
     EnumExtension.GetDescription(Sex.Male) //Retorna a descrição do Enum passado pelo paramêtro.
   
 ## Examples
